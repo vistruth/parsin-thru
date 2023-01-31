@@ -119,7 +119,9 @@ def tshark_cmds():
   file = input ("Enter file name EXACTLY here: ")
   tshark_extract = os.system("tshark -r " + file + " --export-objects 'http,exported'")
   tshark_parse = os.system("tshark -r " + file + " -q -z ip_hosts,tree")
-  return tshark_extract,tshark_parse
+  print("Number of files extracted from" + file)
+  file_count = os.system("find exported -type f | wc -l")
+  return tshark_extract, tshark_parse, file_count, file_count
 
 def reg_logs():
   print("\n\nRegular log Options")
