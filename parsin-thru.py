@@ -43,7 +43,7 @@ def intro():
   """)
   print("Parsing-Thru is an interactive parser and file extractor!")
   main_menu()
-# Have a Main menu func in case wrong selection was made
+# Have a Main menu function
 def main_menu():
   print("\n\nMain Menu")
   print("__"*35)
@@ -63,7 +63,6 @@ def main_menu():
     else:
       print("\n\nYeah, sorry, that is not going to work! Please choose again!")
       main_menu() 
-#def other_options():
 def pcap_options():
   print("\n\n")
   print("Pcap type files")
