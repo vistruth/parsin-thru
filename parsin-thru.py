@@ -99,9 +99,9 @@ def pcap_expl():
     else:
       print("Yeah, sorry, that is not going to work! Please choose again!")
       pcap_expl()
-#menu explaining the diffe between pcap and log files
+#menu explaining the difference between pcap and log files
 def diff_expl():
-  print("\n\nDiffences between the two")
+  print("\n\nDifferences between the two")
   print("__"*35)
   print("What is PCAP?\nPacket Capture or PCAP (also known as libpcap) is an application programming interface (API) that captures live network packet data from OSI model Layers 2-7. Network analyzers like Wireshark create .pcap files to collect and record packet data from a network. PCAP comes in a range of formats including Libpcap, WinPcap, and PCAPng.These PCAP files can be used to view TCP/IP and UDP network packets. If you want to record network traffic then you need to create a .pcapfile. You can create a .pcapfile by using a network analyzer or packet sniffing tool like Wireshark or tcpdump.\n\n\nWhat is a log file?\nLog data is a record of activity, typically saved in binary format, along with metadata such as timestamps and other information about the event being logged. From your firewall to your database server, if a system is designed correctly, it will generate logs in almost every part. Log management is a crucial part of IT infrastructure, and log information is key to identifying cybersecurity threats.") 
   option="0"
@@ -117,9 +117,10 @@ def diff_expl():
       diff_expl()
 def tshark_cmds():  
   file = input ("Enter file name EXACTLY here: ")
-  tshark_extract = os.system("tshark -r " + file + " --export-objects 'http,exported'")
+  tshark_extract = os.system("tshark -r " + file + " --export-objects 'http,exported' -q")
+  print("Extracting files to exported folder...")
   tshark_parse = os.system("tshark -r " + file + " -q -z ip_hosts,tree")
-  print("Number of files extracted from" + file)
+  print("Number of files extracted from " + file)
   file_count = os.system("find exported -type f | wc -l")
   return tshark_extract, tshark_parse, file_count, file_count
 
@@ -143,7 +144,9 @@ def reg_logs():
       reg_logs()
 #auto log parser  
 def log_parse():
-  print("<commands>")
+  file = input("Enter log file name EXACTLY")
+  run_py = os.system("./log.py "+ file)
+  return run_py
 # and basic explaination of parse logging
 def how_parse():
   print("\n\nBasics how to parse with aux cut etc.\nWe can use awk or cut Linux commands to parse our log files. We can get count of unique IP addresses that generated most or least traffic from the log file. It also can get sorted. We need to find a delimeter of the log file we are using log if we use 'cut' command. Adding grep allows us to get a strong tool for carving out data. For use of awk command as well as the cut command we need to know position (field number) of the IP address or other columns in the file.   ")
