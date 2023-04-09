@@ -8,5 +8,5 @@ We also included some informational sections in there. User can get an info on â
 
 Before using Parsing-thru please change your directory to the directory where the files you want to use are stored. 
 
-Watch our video presentation:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZigzGsmWhbc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+Watch our video presentation
+https://www.youtube.com/embed/ZigzGsmWhbc
